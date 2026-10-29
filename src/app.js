@@ -1,6 +1,7 @@
 const express = require('express');
 
-
+const retrieveAppRelease = require('./API/retrieveAppRelease/routes/route');
+const uploadDocument = require('./API/uploadDocument/routes/route');
 const app = express();
 
 app.use(express.json());
@@ -13,6 +14,7 @@ app.get('/health', (req, res) => {
   });
 });
 
-
+app.use('/', retrieveAppRelease);
+app.use('/',uploadDocument);
 
 module.exports = app;
